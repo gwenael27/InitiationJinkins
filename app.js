@@ -5,6 +5,11 @@ app.get("/", function(req, res) {
     return res.send("Hello World");
 });
 
-app.listen(3000, function(){
-    console.log('Listening on port 3000');
-});
+// Seulement démarrer le serveur si le fichier est exécuté directement
+if (require.main === module) {
+    app.listen(3000, function(){
+        console.log('Listening on port 3000');
+    });
+}
+
+module.exports = app;
